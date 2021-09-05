@@ -6,8 +6,7 @@
   "scripts": {
     "server": "node server",
     "dev": "nodemon server",
-    "lint": "eslint . --ext .js",
-    "prueba": "lint-staged"
+    "lint": "eslint . --ext .js"
   },
   "keywords": [],
   "author": "Yiomar Ruiz <yiomar.rc@gmail.com>",
