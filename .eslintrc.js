@@ -1,14 +1,14 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ["airbnb"],
+  extends: ['google'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module"
+    sourceType: 'module',
   },
   rules: {
-    "linebreak-style": "off"
-  }
+    'linebreak-style': 'off',
+  },
 };
