@@ -29,6 +29,6 @@
     }
   },
   "lint-staged": {
-    "**/*.js": ["npm run lint:js"]
+    "api/**/*.js": ["npm run lint:js"]
   }
 }
