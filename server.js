@@ -1,6 +1,6 @@
 const express = require('express');
 const router = new express.Router();
-const handleResponse = require('./api/utils/response');
+const handleResponse = require('./api/utils/response')
 require('dotenv').config()
 
 const variable = 'hola';
