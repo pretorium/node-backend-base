@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server",
     "dev": "nodemon server",
-    "prepare": "husky install"
+    "pre-commit": ""
   },
   "keywords": [],
   "author": "Yiomar Ruiz <yiomar.rc@gmail.com>",
@@ -17,8 +17,16 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-google": "^0.14.0",
     "husky": "^7.0.0",
-    "nodemon": "^2.0.12"
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
   }
 }

@@ -4,7 +4,7 @@ const success = (res, successRes = {}, status = 200) => {
     body: {
       successCode: status,
       successMessage: successRes.successMessage || 'Ok',
-      data: successRes.data || {}
+      data: successRes.data || {},
     },
   });
 };
