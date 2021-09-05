@@ -11,6 +11,9 @@ const success = (res, successRes = {}, status = 200) => {
 
 const variable = 'hola';
 
+
+
+
 const error = (res, errorRes = {}, status = 400) => {
   res.status(status).send({
     success: false,
@@ -21,7 +24,7 @@ const error = (res, errorRes = {}, status = 400) => {
       errorMessageDetail: errorRes.errorMessageDetail || 'Error detail',
     },
   });
-};
+}
 
 module.exports = {
   success,
