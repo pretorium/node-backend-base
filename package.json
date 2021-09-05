@@ -6,7 +6,8 @@
   "scripts": {
     "server": "node server",
     "dev": "nodemon server",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js",
+    "lint2": "node ./prueba"
   },
   "keywords": [],
   "author": "Yiomar Ruiz <yiomar.rc@gmail.com>",
@@ -30,7 +31,7 @@
   },
   "lint-staged": {
     "api/**/*.js": [
-      "npm run lint"
+      "npm run lint2"
     ]
   }
 }
