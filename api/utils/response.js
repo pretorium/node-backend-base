@@ -4,10 +4,12 @@ const success = (res, successRes = {}, status = 200) => {
     body: {
       successCode: status,
       successMessage: successRes.successMessage || 'Ok',
-      data: successRes.data || {},
+      data: successRes.data || {}
     },
   });
-};
+}
+
+const variable = 'hola';
 
 const error = (res, errorRes = {}, status = 400) => {
   res.status(status).send({
