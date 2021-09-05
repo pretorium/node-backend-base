@@ -1,11 +1,9 @@
 const success = (res, successRes = {}, status = 200) => {
-
-  
   res.status(status).send({
     success: true,
     body: {
       successCode: status,
-      successMessage: successRes.successMessage || 'Ok'
+      successMessage: successRes.successMessage || 'Ok',
       data: successRes.data || {},
     },
   });
