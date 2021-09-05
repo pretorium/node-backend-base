@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node server",
-    "dev": "nodemon server",
-    "pre-commit": ""
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "Yiomar Ruiz <yiomar.rc@gmail.com>",
@@ -19,11 +18,18 @@
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
     "husky": "^7.0.0",
+    "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-commit"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
