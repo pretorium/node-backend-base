@@ -12,12 +12,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node ./prueba"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.js": [
-      "eslint . --ext .js"
+      "eslint . --ext .js",
+      "git add"
     ]
   },
   "dependencies": {
