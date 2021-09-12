@@ -8,11 +8,12 @@
   "license": "ISC",
   "scripts": {
     "server": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "eslint": "eslint --ext .js api"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint . --ext .js api"
+      "pre-commit": "npm run eslint"
     }
   },
   "lint-staged": {
