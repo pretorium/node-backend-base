@@ -1,20 +1,11 @@
 const express = require('express');
-const router = express.Router();
-const handleResponse = require('./api/utils/response');
 require('dotenv').config();
+const router = require('./api/network/routes')
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(router);
-
-router.get('/message', (_, res) => {
-  handleResponse.success(res);
-});
-
-router.post('/message', (_, res) => {
-  handleResponse.error(res);
-});
+router(app);
 
 const port = process.env.PORT || 4000;
 
