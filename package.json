@@ -9,7 +9,7 @@
   "scripts": {
     "server": "node server",
     "dev": "nodemon server",
-    "eslint": "eslint *.js"
+    "eslint": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   },
   "husky": {
     "hooks": {
