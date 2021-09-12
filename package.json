@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "server": "node server",
-    "dev": "nodemon server",
-    "precommit": "lint-staged",
-    "lint": "eslint . --ext .js"
-  },
   "keywords": [],
   "author": "Yiomar Ruiz <yiomar.rc@gmail.com>",
   "license": "ISC",
+  "scripts": {
+    "server": "node server",
+    "dev": "nodemon server"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint . --ext .js"
+    ]
+  },
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -23,15 +31,5 @@
     "eslint-plugin-import": "^2.24.2",
     "husky": "^7.0.2",
     "nodemon": "^2.0.12"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "npm run lint"
-    ]
   }
 }
