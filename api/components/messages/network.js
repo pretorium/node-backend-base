@@ -1,17 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const handleResponse = require('../../network/response')  
+const { addMessage, getMessages } = require('./controller');
+const handleResponse = require('../../network/response');
 
-
-
-
-
-router.get('/', (_, res) => {
-  handleResponse.success(res);
+router.post('/', async (req, res) => {
+  const { body: { user, message } } = req;
+  try {
+    const fullMessage = await addMessage(user, message);
+    handleResponse.success(res, { data: fullMessage });
+  } catch (error) {
+    const errorObj = {
+      errorMessage: error.message || 'Error interno',
+      errorMessageDetail: `[POST][addMessage]: ${error}`,
+    };
+    handleResponse.error(res, errorObj);
+  }
 });
 
-router.post('/', (_, res) => {
-  handleResponse.error(res);
+router.get('/', async (_, res) => {
+  try {
+    const messages = await getMessages();
+    handleResponse.success(res, { data: messages });
+  } catch (error) {
+    const errorObj = {
+      errorMessage: error.message || 'Error interno',
+      errorMessageDetail: `[GET][getMessages]: ${error}`,
+    };
+    handleResponse.error(res, errorObj);
+  }
 });
 
-module.exports = router
+module.exports = router;
