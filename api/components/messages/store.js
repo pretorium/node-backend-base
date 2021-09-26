@@ -1,22 +1,4 @@
-/* eslint-disable no-console */
-const db = require('mongoose');
-require('dotenv').config();
 const Model = require('./model');
-
-const connectDB = async () => {
-  try {
-    await db.connect(process.env.DB_MONGO, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log('-> [Base de datos conectada]');
-  } catch (error) {
-    console.log(error);
-    process.exit(1); /** Esto detiene el server */
-  }
-};
-
-connectDB();
 
 const addMessage = (message) => {
   const myMessage = new Model(message);
