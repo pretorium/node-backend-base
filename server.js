@@ -5,8 +5,8 @@ const connectDB = require('./db');
 
 connectDB();
 const app = express();
-app.use(express.json({ limit: '25mb' }));
-app.use(express.urlencoded({ extended: false, limit: '25mb' }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 router(app);
 
 const port = process.env.PORT || 4000;

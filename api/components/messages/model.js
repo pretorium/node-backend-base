@@ -1,7 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const mySchema = new Schema({
-  user: String,
+  user: {
+    type: Schema.ObjectId,
+    ref: 'Users',
+  },
   message: {
     type: String,
     required: true,

@@ -10,7 +10,7 @@ const getMessages = async (filterByUser) => {
   if (filterByUser) {
     filter = { user: filterByUser };
   }
-  const messages = await Model.find(filter);
+  const messages = await Model.find(filter).populate('user');
   return messages;
 };
 
