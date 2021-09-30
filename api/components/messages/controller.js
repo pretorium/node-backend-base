@@ -1,11 +1,19 @@
 const store = require('./store');
+require('dotenv').config();
 
-const addMessage = (user, message) => new Promise((resolve, reject) => {
-  if (!user || !message) {
-    reject(new Error('user y message requeridos'));
+const addMessage = (chat, user, message, file) => new Promise((resolve, reject) => {
+  let fileUrl = '';
+  if (!user || !message || !chat) {
+    reject(new Error('user, message y chat requeridos'));
   }
 
-  const messageData = { user, message, date: new Date() };
+  if (file) {
+    fileUrl = `http://localhost:${process.env.PORT || 4000}/public/files/${file.filename}`;
+  }
+
+  const messageData = {
+    chat, user, message, date: new Date(), fileUrl,
+  };
 
   store.add(messageData);
   resolve(messageData);

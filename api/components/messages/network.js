@@ -1,14 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
 const {
   addMessage, getMessages, updateMessage, deteleMessage,
 } = require('./controller');
 const handleResponse = require('../../network/response');
 
-router.post('/', async (req, res) => {
-  const { body: { user, message } } = req;
+const upload = multer({
+  dest: 'public/files/',
+});
+
+router.post('/', upload.single('file'), async (req, res) => {
+  const { body: { user, message, chat }, file } = req;
+  console.log(req.body);
   try {
-    const fullMessage = await addMessage(user, message);
+    const fullMessage = await addMessage(chat, user, message, file);
     handleResponse.success(res, { data: fullMessage });
   } catch (error) {
     const errorObj = {
